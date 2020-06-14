@@ -1,0 +1,16 @@
+{
+  "name": "abtest",
+  "version": "1.0.0",
+  "description": "ab test",
+  "main": "index.js",
+  "author": "Misiaszek Valentin",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.18"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
