@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { validate, Page } = require("../models/page.model");
+const Joi = require("@hapi/joi");
 
 // GET -- Get a page with id
 router.get("/:id", async (req, res) => {
@@ -9,6 +10,24 @@ router.get("/:id", async (req, res) => {
     if (error) return res.status(400).send("Bad request");
 
     const page = await Page.findById(req.params.id);
+    if (!page) return res.status(404).send("Page not found");
+
+    res.send(page);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
+// POST -- Get a page with url
+router.post("/url", async (req, res) => {
+  try {
+    const schema = Joi.schema({
+      url: Joi.string().required()
+    });
+    const { error } = schema.validate(req.body);
+    if (error) return res.status(400).send("Bad request");
+
+    const page = await Page.findOne({ url: req.body.url });
     if (!page) return res.status(404).send("Page not found");
 
     res.send(page);
