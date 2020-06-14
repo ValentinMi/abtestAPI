@@ -25,8 +25,8 @@ router.post("/", async (req, res) => {
   res.send(newPage);
 });
 
-// PATCH --  Edit a page with id
-router.patch("/:id", async (req, res) => {
+// PUT --  Edit a page with id
+router.put("/:id", async (req, res) => {
   // Validation
   const { error } = validate(req.body);
   if (error) return res.status(400).send("Bad request");

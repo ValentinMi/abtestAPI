@@ -10,6 +10,12 @@ const Page = mongoose.model(
       maxlength: 255,
       required: true
     },
+    url: {
+      type: String,
+      minlength: 3,
+      maxlength: 255,
+      required: true
+    },
     config: {
       type: Array,
       minlength: 0
@@ -28,6 +34,7 @@ const Page = mongoose.model(
 const validatePage = page => {
   const schema = Joi.schema({
     name: Joi.string().min(1).max(255).required(),
+    url: Joi.string().min(3).max(255).required(),
     config: Joi.array(),
     "config-test": Joi.array(),
     creationDate: Joi.date().required()
