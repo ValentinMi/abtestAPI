@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Joi = require("Joi");
+const Joi = require("@hapi/joi");
 
 const Page = mongoose.model(
   "Page",
