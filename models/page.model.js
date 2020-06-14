@@ -32,6 +32,8 @@ const validatePage = page => {
     "config-test": Joi.array(),
     creationDate: Joi.date().required()
   });
+
+  return schema.validate(page);
 };
 
 exports.validate = validatePage;
