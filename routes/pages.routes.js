@@ -21,7 +21,7 @@ router.get("/:id", async (req, res) => {
 // POST -- Get a page with url
 router.post("/url", async (req, res) => {
   try {
-    const schema = Joi.schema({
+    const schema = Joi.object({
       url: Joi.string().required()
     });
     const { error } = schema.validate(req.body);

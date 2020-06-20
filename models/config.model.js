@@ -21,7 +21,7 @@ const Config = mongoose.model(
 );
 
 const validateConfig = config => {
-  const schema = Joi.schema({
+  const schema = Joi.object({
     isTest: Joi.boolean().required(),
     creationDate: Joi.date().required(),
     config: Joi.array().minlength(1).required()

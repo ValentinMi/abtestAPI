@@ -32,7 +32,7 @@ const Page = mongoose.model(
 );
 
 const validatePage = page => {
-  const schema = Joi.schema({
+  const schema = Joi.object({
     name: Joi.string().min(1).max(255).required(),
     url: Joi.string().min(3).max(255).required(),
     config: Joi.array(),

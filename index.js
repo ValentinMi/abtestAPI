@@ -4,9 +4,9 @@ const app = express();
 
 app.use(express.json());
 
+require("./startup/cors")(app);
 require("./startup/database")();
 require("./startup/router")(app);
-require("./startup/cors")(app);
 
 const port = process.env.PORT;
 
